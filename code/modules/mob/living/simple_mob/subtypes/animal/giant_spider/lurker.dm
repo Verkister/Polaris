@@ -58,16 +58,18 @@
 /mob/living/simple_mob/animal/giant_spider/lurker/proc/cloak()
 	if(cloaked)
 		return
-	animate(src, alpha = cloaked_alpha, time = 1 SECOND)
 	cloaked = TRUE
+	//animate(src, alpha = cloaked_alpha, time = 1 SECOND)
+	alpha = cloaked_alpha
 
 
 /mob/living/simple_mob/animal/giant_spider/lurker/proc/uncloak()
 	last_uncloak = world.time // This is assigned even if it isn't cloaked already, to 'reset' the timer if the spider is continously getting attacked.
 	if(!cloaked)
 		return
-	animate(src, alpha = initial(alpha), time = 1 SECOND)
 	cloaked = FALSE
+	//animate(src, alpha = initial(alpha), time = 1 SECOND)
+	alpha = 255
 
 
 // Check if cloaking if possible.
